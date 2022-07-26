@@ -1,4 +1,4 @@
-%run 
+%run 0_split_data.py
 #fix_random_state=42
 models = {}
 for data, name in zip(data_sets, names):  
