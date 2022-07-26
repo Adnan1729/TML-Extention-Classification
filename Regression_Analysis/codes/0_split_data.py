@@ -15,9 +15,8 @@ for i,j in zip(datasets,names):
     #replace with x_res, y_res from now on
     remove_low_variance(x_res, threshold=0.1)
                         break
-    
-#fix_random_state=42
-models = {}
+   
+#splitting data with for loop
 for data, name in zip(data_sets, names):
 
     #Data splitting
