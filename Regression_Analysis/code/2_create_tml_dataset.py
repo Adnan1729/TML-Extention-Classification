@@ -32,12 +32,12 @@ def read_and_fit_dataset(dataset_01):
         #creating tml training datasets
         x_train.insert(0,"molecule_id", df_train.molecule_id)
         x_train.insert(1,"pXC50", pred_train)
-        x_train.to_csv((f'C:\\Users\\adnan\\Regression_Analysis_RP050822\\input\\tml\\{dataset_01}_trained_by_model_{dataset_02}_tml_train.csv'))
+        x_train.to_csv((f'C:\\Users\\adnan\\Regression_Analysis_RP050822\\input\\tml\\{dataset_01}_predicted_by_model_{dataset_02}_tml_train.csv'))
 
         #creating tml testing datasets
         x_test.insert(0,"molecule_id", df_test.molecule_id)
         x_test.insert(1,"pXC50", pred_test)
-        x_test.to_csv((f'C:\\Users\\adnan\\Regression_Analysis_RP050822\\input\\tml\\{dataset_01}_trained_by_model_{dataset_02}_tml_test.csv'))
+        x_test.to_csv((f'C:\\Users\\adnan\\Regression_Analysis_RP050822\\input\\tml\\{dataset_01}_predicted_by_model_{dataset_02}_tml_test.csv'))
 
     
 
