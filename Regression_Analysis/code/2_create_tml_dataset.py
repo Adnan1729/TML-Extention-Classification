@@ -5,7 +5,7 @@ from sklearn.ensemble import RandomForestRegressor
 import pickle
 import numpy as np
 
-def read_and_fit_dataset(dataset_01):
+def create_tml_dataset(dataset_01):
     
     df_train = pd.read_csv(f'C:\\Users\\adnan\\Regression_Analysis\\input\\processed\\{dataset_01}_train.csv')
     df_test = pd.read_csv(f'C:\\Users\\adnan\\Regression_Analysis\\input\\processed\\{dataset_01}_test.csv')
@@ -44,6 +44,6 @@ def read_and_fit_dataset(dataset_01):
 def main_02():
     datasets = ['CHEMBL203', 'CHEMBL204', 'CHEMBL205', 'CHEMBL228', 'CHEMBL233', 'CHEMBL251', 'CHEMBL253', 'CHEMBL260', 'CHEMBL267', 'CHEMBL339']
     for dataset_01 in datasets:
-        read_and_fit_dataset(dataset_01)
+        create_tml_dataset(dataset_01)
 
 main_02()
