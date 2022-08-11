@@ -10,8 +10,8 @@ tml_r2_results = []
 
 def read_and_fit_dataset(dataset):
     
-    tml_df_train = pd.read_csv(f'C:\\Users\\adnan\\Regression_Analysis\\input\\processed\\{dataset}_train.csv')
-    tml_df_test = pd.read_csv(f'C:\\Users\\adnan\\Regression_Analysis\\input\\processed\\{dataset}_test.csv')
+    tml_df_train = pd.read_csv(f'C:\\Users\\adnan\\Regression_Analysis_RP050822\\input\\processed\\{dataset}_train.csv')
+    tml_df_test = pd.read_csv(f'C:\\Users\\adnan\\Regression_Analysis_RP050822\\input\\processed\\{dataset}_test.csv')
     
     x_train = tml_df_train.drop(columns = ['molecule_id','pXC50'])
     y_train = tml_df_train.pXC50
