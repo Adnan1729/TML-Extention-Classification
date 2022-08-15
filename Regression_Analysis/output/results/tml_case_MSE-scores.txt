@@ -1,0 +1,10 @@
+CHEMBL203 mean squared score is 0.7780129458556181
+CHEMBL204 mean squared score is 1.3764661525368767
+CHEMBL205 mean squared score is 1.4546597705403772
+CHEMBL228 mean squared score is 0.9000890289710634
+CHEMBL233 mean squared score is 1.1814625707167332
+CHEMBL251 mean squared score is 0.9897431986973011
+CHEMBL253 mean squared score is 0.9840831128363082
+CHEMBL260 mean squared score is 0.9845859836411437
+CHEMBL267 mean squared score is 0.7877997672205695
+CHEMBL339 mean squared score is 0.8001759702699554
