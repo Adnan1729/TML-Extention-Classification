@@ -64,3 +64,6 @@ def main_01():
         read_and_fit_dataset(dataset)
 
 main_01()
+
+%store base_r2_results
+%store base_MSE_results
