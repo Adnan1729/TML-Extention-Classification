@@ -8,16 +8,15 @@ from sklearn.ensemble import RandomForestRegressor
 import pickle
 import matplotlib.pyplot as plt
 
-datasets_3 = ['CHEMBL203', 'CHEMBL204', 'CHEMBL205', 'CHEMBL206', 'CHEMBL208', 'CHEMBL210', 'CHEMBL211', 'CHEMBL214', 'CHEMBL219', 'CHEMBL220',
-'CHEMBL221', 'CHEMBL222', 'CHEMBL224', 'CHEMBL225', 'CHEMBL226', 'CHEMBL228', 'CHEMBL230', 'CHEMBL233', 'CHEMBL234', 'CHEMBL247',
-'CHEMBL248', 'CHEMBL249', 'CHEMBL251', 'CHEMBL253', 'CHEMBL255', 'CHEMBL256', 'CHEMBL258', 'CHEMBL259', 'CHEMBL260', 'CHEMBL261',
-'CHEMBL262', 'CHEMBL264', 'CHEMBL267', 'CHEMBL268', 'CHEMBL269', 'CHEMBL270', 'CHEMBL283', 'CHEMBL284', 'CHEMBL286', 'CHEMBL287',
-'CHEMBL289', 'CHEMBL298', 'CHEMBL301', 'CHEMBL302', 'CHEMBL308', 'CHEMBL313', 'CHEMBL318', 'CHEMBL321', 'CHEMBL322', 'CHEMBL325',
-'CHEMBL332', 'CHEMBL333', 'CHEMBL335', 'CHEMBL338', 'CHEMBL339', 'CHEMBL340', 'CHEMBL344', 'CHEMBL1800', 'CHEMBL1824', 'CHEMBL1844',
-'CHEMBL1862', 'CHEMBL1868', 'CHEMBL1871', 'CHEMBL1914', 'CHEMBL1957', 'CHEMBL1974', 'CHEMBL1981', 'CHEMBL2034', 'CHEMBL2208', 'CHEMBL2276',
-'CHEMBL2334', 'CHEMBL2954', 'CHEMBL2971', 'CHEMBL3227', 'CHEMBL3371', 'CHEMBL3397', 'CHEMBL3571', 'CHEMBL3650', 'CHEMBL3706', 'CHEMBL3717',
-'CHEMBL3837', 'CHEMBL3952', 'CHEMBL4005', 'CHEMBL4124', 'CHEMBL4235', 'CHEMBL4282', 'CHEMBL4296', 'CHEMBL4354', 'CHEMBL4630', 'CHEMBL4722',
-'CHEMBL4794', 'CHEMBL4805', 'CHEMBL4822', 'CHEMBL1293228', 'CHEMBL1741171', 'CHEMBL1907607', 'CHEMBL1907608', 'CHEMBL1907610', 'CHEMBL2093869', 'CHEMBL2094108']
+# The Path where all the 500 or 1000 or 1500 or 2000 datasets are stored. "/500" shall be chnaged to "/1000" or "/1500" or "/2000" for scaling up. 
+dir_path = r'/content/drive/MyDrive/Classification_Analysis/input/base_raw/500'
+all_file_names = []
+for path in os.listdir(dir_path):
+    # check if current path is a file
+    if os.path.isfile(os.path.join(dir_path, path)):
+        all_file_names.append(path)
+
+datasets_3 = all_file_names
 
 tml_accuracy_results = []
 tml_precision_results = []
@@ -89,76 +88,76 @@ main_3()
 %store -r base_precision_results
 %store -r base_recall_results
 
-#----------------------------------#
-#Accuracy
-ds_name = ['203', '204', '205', '206', '208', '210', '211', '214', '219', '220',
-           '221', '222', '224', '225', '226', '228', '230', '233', '234', '247',
-           '248', '249', '251', '253', '255', '256', '258', '259', '260', '261',
-           '262', '264', '267', '268', '269', '270', '283', '284', '286', '287',
-           '289' ,'298' ,'301', '302', '308',  '313', '318', '321', '322', '325', 
-           '332', '333', '335', '338', '339', '340', '344', '1800', '1824', '1844', 
-           '1862', '1868', '1871', '1914', '1957', '1974', '1981', '2034', '2208', '2276', 
-           '2334', '2954', '2971', '3227', '3371', '3397', '3571','3650', '3706', '3717']
+# #----------------------------------#
+# #Accuracy
+# ds_name = ['203', '204', '205', '206', '208', '210', '211', '214', '219', '220',
+#            '221', '222', '224', '225', '226', '228', '230', '233', '234', '247',
+#            '248', '249', '251', '253', '255', '256', '258', '259', '260', '261',
+#            '262', '264', '267', '268', '269', '270', '283', '284', '286', '287',
+#            '289' ,'298' ,'301', '302', '308',  '313', '318', '321', '322', '325', 
+#            '332', '333', '335', '338', '339', '340', '344', '1800', '1824', '1844', 
+#            '1862', '1868', '1871', '1914', '1957', '1974', '1981', '2034', '2208', '2276', 
+#            '2334', '2954', '2971', '3227', '3371', '3397', '3571','3650', '3706', '3717']
 
-plt.plot(ds_name, base_accuracy_results, color='green', linestyle='solid', linewidth = .5,
-		marker=',', markerfacecolor='green', markersize=.5, label='Base')
+# plt.plot(ds_name, base_accuracy_results, color='green', linestyle='solid', linewidth = .5,
+# 		marker=',', markerfacecolor='green', markersize=.5, label='Base')
 
-plt.plot(ds_name, tml_accuracy_results, color='blue', linestyle='solid', linewidth = .5,
-		marker=',', markerfacecolor='blue', markersize=.5, label='TML')
+# plt.plot(ds_name, tml_accuracy_results, color='blue', linestyle='solid', linewidth = .5,
+# 		marker=',', markerfacecolor='blue', markersize=.5, label='TML')
 
-plt.axhline(y = max(base_accuracy_results), color = 'g', linestyle = '-', linewidth = 0.3)
-plt.axhline(y = min(base_accuracy_results), color = 'g', linestyle = '-', linewidth = 0.3)
-plt.axhline(y = max(tml_accuracy_results), color = 'b', linestyle = '-', linewidth = 0.3)
-plt.axhline(y = min(tml_accuracy_results), color = 'b', linestyle = '-', linewidth = 0.3)
+# plt.axhline(y = max(base_accuracy_results), color = 'g', linestyle = '-', linewidth = 0.3)
+# plt.axhline(y = min(base_accuracy_results), color = 'g', linestyle = '-', linewidth = 0.3)
+# plt.axhline(y = max(tml_accuracy_results), color = 'b', linestyle = '-', linewidth = 0.3)
+# plt.axhline(y = min(tml_accuracy_results), color = 'b', linestyle = '-', linewidth = 0.3)
 
-plt.ylim(0,1)
-plt.xlabel('Dataset_CHEMBLxxx')
-plt.ylabel('Accuracy Performance')
-plt.title('Classification: Base Vs TML Model Performance_80 Trained Models')
-plt.legend()
-plt.show() 
-
-
-#Precision
-
-plt.plot(ds_name, base_precision_results, color='green', linestyle='solid', linewidth = .5,
-		marker=',', markerfacecolor='green', markersize=.5, label='Base')
-
-plt.plot(ds_name, tml_precision_results, color='blue', linestyle='solid', linewidth = .5,
-		marker=',', markerfacecolor='blue', markersize=.5, label='TML')
-
-plt.axhline(y = max(base_precision_results), color = 'g', linestyle = '-', linewidth = 0.3)
-plt.axhline(y = min(base_precision_results), color = 'g', linestyle = '-', linewidth = 0.3)
-plt.axhline(y = max(tml_precision_results), color = 'b', linestyle = '-', linewidth = 0.3)
-plt.axhline(y = min(tml_precision_results), color = 'b', linestyle = '-', linewidth = 0.3)
-
-plt.ylim(0,1)
-plt.xlabel('Dataset_CHEMBLxxx')
-plt.ylabel('Precision Performance')
-plt.title('Classification: Base Vs TML Model Performance_80 Trained Models')
-plt.legend()
-plt.show()
+# plt.ylim(0,1)
+# plt.xlabel('Dataset_CHEMBLxxx')
+# plt.ylabel('Accuracy Performance')
+# plt.title('Classification: Base Vs TML Model Performance_80 Trained Models')
+# plt.legend()
+# plt.show() 
 
 
-#Recall
+# #Precision
 
-plt.plot(ds_name, base_recall_results, color='green', linestyle='solid', linewidth = .5,
-		marker=',', markerfacecolor='green', markersize=.5, label='Base')
+# plt.plot(ds_name, base_precision_results, color='green', linestyle='solid', linewidth = .5,
+# 		marker=',', markerfacecolor='green', markersize=.5, label='Base')
 
-plt.plot(ds_name, tml_recall_results, color='blue', linestyle='solid', linewidth = .5,
-		marker=',', markerfacecolor='blue', markersize=.5, label='TML')
+# plt.plot(ds_name, tml_precision_results, color='blue', linestyle='solid', linewidth = .5,
+# 		marker=',', markerfacecolor='blue', markersize=.5, label='TML')
 
-plt.axhline(y = max(base_recall_results), color = 'g', linestyle = '-', linewidth = 0.3)
-plt.axhline(y = min(base_recall_results), color = 'g', linestyle = '-', linewidth = 0.3)
-plt.axhline(y = max(tml_recall_results), color = 'b', linestyle = '-', linewidth = 0.3)
-plt.axhline(y = min(tml_recall_results), color = 'b', linestyle = '-', linewidth = 0.3)
+# plt.axhline(y = max(base_precision_results), color = 'g', linestyle = '-', linewidth = 0.3)
+# plt.axhline(y = min(base_precision_results), color = 'g', linestyle = '-', linewidth = 0.3)
+# plt.axhline(y = max(tml_precision_results), color = 'b', linestyle = '-', linewidth = 0.3)
+# plt.axhline(y = min(tml_precision_results), color = 'b', linestyle = '-', linewidth = 0.3)
 
-plt.ylim(0,1)
-plt.xlabel('Dataset_CHEMBLxxx')
-plt.ylabel('Recall Performance')
-plt.title('Classification: Base Vs TML Model Performance_80 Trained Models')
-plt.legend()
-plt.show()
+# plt.ylim(0,1)
+# plt.xlabel('Dataset_CHEMBLxxx')
+# plt.ylabel('Precision Performance')
+# plt.title('Classification: Base Vs TML Model Performance_80 Trained Models')
+# plt.legend()
+# plt.show()
+
+
+# #Recall
+
+# plt.plot(ds_name, base_recall_results, color='green', linestyle='solid', linewidth = .5,
+# 		marker=',', markerfacecolor='green', markersize=.5, label='Base')
+
+# plt.plot(ds_name, tml_recall_results, color='blue', linestyle='solid', linewidth = .5,
+# 		marker=',', markerfacecolor='blue', markersize=.5, label='TML')
+
+# plt.axhline(y = max(base_recall_results), color = 'g', linestyle = '-', linewidth = 0.3)
+# plt.axhline(y = min(base_recall_results), color = 'g', linestyle = '-', linewidth = 0.3)
+# plt.axhline(y = max(tml_recall_results), color = 'b', linestyle = '-', linewidth = 0.3)
+# plt.axhline(y = min(tml_recall_results), color = 'b', linestyle = '-', linewidth = 0.3)
+
+# plt.ylim(0,1)
+# plt.xlabel('Dataset_CHEMBLxxx')
+# plt.ylabel('Recall Performance')
+# plt.title('Classification: Base Vs TML Model Performance_80 Trained Models')
+# plt.legend()
+# plt.show()
 
 
 #----------------------------------#
