@@ -23,6 +23,7 @@ tml_precision_results = []
 tml_recall_results = []
 
 def tml_model_results(model):
+    '''This function is where the TML predictions occurs. Here the target dataset gets input from the out of other datasets'''
     
     #loading the model to train with
     base_model = pickle.load(open(f'C:\\Users\\AMahmud\\Classification_Analysis\\output\\models\\base\\{model}.sav', 'rb'))
@@ -88,79 +89,7 @@ main_3()
 %store -r base_precision_results
 %store -r base_recall_results
 
-# #----------------------------------#
-# #Accuracy
-# ds_name = ['203', '204', '205', '206', '208', '210', '211', '214', '219', '220',
-#            '221', '222', '224', '225', '226', '228', '230', '233', '234', '247',
-#            '248', '249', '251', '253', '255', '256', '258', '259', '260', '261',
-#            '262', '264', '267', '268', '269', '270', '283', '284', '286', '287',
-#            '289' ,'298' ,'301', '302', '308',  '313', '318', '321', '322', '325', 
-#            '332', '333', '335', '338', '339', '340', '344', '1800', '1824', '1844', 
-#            '1862', '1868', '1871', '1914', '1957', '1974', '1981', '2034', '2208', '2276', 
-#            '2334', '2954', '2971', '3227', '3371', '3397', '3571','3650', '3706', '3717']
 
-# plt.plot(ds_name, base_accuracy_results, color='green', linestyle='solid', linewidth = .5,
-# 		marker=',', markerfacecolor='green', markersize=.5, label='Base')
-
-# plt.plot(ds_name, tml_accuracy_results, color='blue', linestyle='solid', linewidth = .5,
-# 		marker=',', markerfacecolor='blue', markersize=.5, label='TML')
-
-# plt.axhline(y = max(base_accuracy_results), color = 'g', linestyle = '-', linewidth = 0.3)
-# plt.axhline(y = min(base_accuracy_results), color = 'g', linestyle = '-', linewidth = 0.3)
-# plt.axhline(y = max(tml_accuracy_results), color = 'b', linestyle = '-', linewidth = 0.3)
-# plt.axhline(y = min(tml_accuracy_results), color = 'b', linestyle = '-', linewidth = 0.3)
-
-# plt.ylim(0,1)
-# plt.xlabel('Dataset_CHEMBLxxx')
-# plt.ylabel('Accuracy Performance')
-# plt.title('Classification: Base Vs TML Model Performance_80 Trained Models')
-# plt.legend()
-# plt.show() 
-
-
-# #Precision
-
-# plt.plot(ds_name, base_precision_results, color='green', linestyle='solid', linewidth = .5,
-# 		marker=',', markerfacecolor='green', markersize=.5, label='Base')
-
-# plt.plot(ds_name, tml_precision_results, color='blue', linestyle='solid', linewidth = .5,
-# 		marker=',', markerfacecolor='blue', markersize=.5, label='TML')
-
-# plt.axhline(y = max(base_precision_results), color = 'g', linestyle = '-', linewidth = 0.3)
-# plt.axhline(y = min(base_precision_results), color = 'g', linestyle = '-', linewidth = 0.3)
-# plt.axhline(y = max(tml_precision_results), color = 'b', linestyle = '-', linewidth = 0.3)
-# plt.axhline(y = min(tml_precision_results), color = 'b', linestyle = '-', linewidth = 0.3)
-
-# plt.ylim(0,1)
-# plt.xlabel('Dataset_CHEMBLxxx')
-# plt.ylabel('Precision Performance')
-# plt.title('Classification: Base Vs TML Model Performance_80 Trained Models')
-# plt.legend()
-# plt.show()
-
-
-# #Recall
-
-# plt.plot(ds_name, base_recall_results, color='green', linestyle='solid', linewidth = .5,
-# 		marker=',', markerfacecolor='green', markersize=.5, label='Base')
-
-# plt.plot(ds_name, tml_recall_results, color='blue', linestyle='solid', linewidth = .5,
-# 		marker=',', markerfacecolor='blue', markersize=.5, label='TML')
-
-# plt.axhline(y = max(base_recall_results), color = 'g', linestyle = '-', linewidth = 0.3)
-# plt.axhline(y = min(base_recall_results), color = 'g', linestyle = '-', linewidth = 0.3)
-# plt.axhline(y = max(tml_recall_results), color = 'b', linestyle = '-', linewidth = 0.3)
-# plt.axhline(y = min(tml_recall_results), color = 'b', linestyle = '-', linewidth = 0.3)
-
-# plt.ylim(0,1)
-# plt.xlabel('Dataset_CHEMBLxxx')
-# plt.ylabel('Recall Performance')
-# plt.title('Classification: Base Vs TML Model Performance_80 Trained Models')
-# plt.legend()
-# plt.show()
-
-
-#----------------------------------#
 #Mean Accuracy 
 acc_b = pd.DataFrame(base_accuracy_results)
 acc_t = pd.DataFrame(tml_accuracy_results)
