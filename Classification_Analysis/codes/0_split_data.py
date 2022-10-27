@@ -15,6 +15,7 @@ for path in os.listdir(dir_path):
 datasets = all_file_names
 
 def split_and_save_dataset(dataset, perc = 0.3):
+    '''This function creats classes of a continious variable (pXC50) and then splits the dataset for test and train'''
     
     df = pd.read_csv(f'C:\\Users\\AMahmud\\Classification_Analysis\\input\\base_raw\\{dataset}.csv', index_col=0, header=0)
     
